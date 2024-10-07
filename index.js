@@ -6,6 +6,17 @@ let allPets = async() => {
 
 
 
+
+let sorting = async () => {
+  let res = await fetch(`https://openapi.programming-hero.com/api/peddy/pets`);
+  let data = await res.json();
+  
+  let sortedPets = data.pets.sort((a, b) => b.price - a.price); 
+  
+  showPetsItem(sortedPets);
+};
+
+
 let showPetsItem = (data) => {
     document.querySelector("#spinner").style.display = "none"
     let showPetsCard = document.querySelector("#all-items")
@@ -27,6 +38,8 @@ let showPetsItem = (data) => {
     data.forEach(element => {
 
         let {image, pet_name, breed, date_of_birth, gender, price ,petId} = element
+
+          
 
         let div = document.createElement("div")
         div.classList = "card bg-base-100 px-3 py-3 w-auto border-2 shadow-xl"
@@ -69,48 +82,9 @@ let showPetsItem = (data) => {
 }
 
 
-// let closePopup = () => {
-//   document.querySelector("#my_modal_2").close();
-// }
-
-// let popup = () => {
-//   let modal = document.querySelector("#my_modal_2");
-//   modal.showModal();
-
-//   setTimeout(function () {
-//     closePopup();
-//   }, 2000);
-// }
 
 
-// let closePopup = () => {
-//   let modal = document.querySelector("#my_modal_2");
-//   modal.close();
-//   modal.style.display = "none"; // Reset display style
-
-// }
-
-// let popup = () => {
-//   let modal = document.querySelector("#my_modal_2");
-//   modal.style.display = "block"; // Optional, ensures visibility
-//   modal.showModal();
-
-//   let time = 4
-//   let countTime = document.querySelector("#countTime")
-//   countTime.innerText = ""
-//   setInterval(function(){
-//     time--
-//     countTime.innerText = time
-//   },1000)
-  
-//   setTimeout(function () {
-//     closePopup();
-//   }, 4000);
-// }
-
-
-
-let intervalId; 
+let intervalId = ""; 
 
 let closePopup = () => {
   let modal = document.querySelector("#my_modal_2");
@@ -206,18 +180,6 @@ let popup = () => {
         my_modal_1.showModal()
     }
 
-    // let ex = {
-    //   "petId": 1,
-    // "breed": "Golden Retriever",
-    // "category": "Dog",
-    // "date_of_birth": "2023-01-15",
-    // "price": 1200,
-    // "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-    // "gender": "Male",
-    // "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-    // "vaccinated_status": "Fully",
-    // "pet_name": "Sunny"
-    // }
 
 
 
@@ -287,6 +249,11 @@ let loadCategories = () => {
  
   
 
+  
+
+
+
+
 
 
   loadCategories()
@@ -308,16 +275,3 @@ allPets()
 
 
 
-
-let help = {
-    breed: "Golden Retriever",
-category: "Dog",
-date_of_birth: "2023-01-15",
-gender: "Male",
-image: "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-petId: 1,
-pet_details: "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-pet_name: "Sunny",
-price: 1200,
-vaccinated_status: "Fully"
-}
