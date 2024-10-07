@@ -254,9 +254,16 @@ let loadCategories = () => {
 
 
 
+let mainLode =() => {
 
-
-  loadCategories()
+  document.querySelector("#spinner").style.display = "block"
+        setTimeout(function(){
+            showPetsItem(data.data)
+          }, 3000)
+        }
+        
+        loadCategories()
+  mainLode()
 
 allPets()
 
