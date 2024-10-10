@@ -24,7 +24,7 @@ let showPetsItem = (data) => {
 
         if(data.length === 0){
             let div = document.createElement("div")
-            div.classList = "col-span-12 lg:col-span-12 w-12/12 lg:w-9/12 py-20 mx-auto rounded-lg p-3 grid grid-cols-1 lg:grid-cols-1"
+            div.classList = "col-span-12 lg:col-span-12 w-12/12 lg:w-9/12 my-52 py-20 mx-auto rounded-lg p-3 grid grid-cols-1 lg:grid-cols-1"
             div.innerHTML = `<div class=" flex justify-center">
             <img class="text-center" src="./images/error.webp" alt="">
             </div>
@@ -189,7 +189,7 @@ let likePets = (image) => {
     let likedPets = document.querySelector("#liked")
 
     let div = document.createElement("div")
-    div.classList = "h-22 rounded-2xl  border-2 shadow-xl p-2"
+    div.classList = "h-22 rounded-2xl bg-white border-2 shadow-xl p-2"
     div.innerHTML = `
             <img src="${image}"
             alt="Shoes"
@@ -248,9 +248,8 @@ let loadCategories = () => {
 
  
   
-
-  
-
+// 
+//   
 
 
 
